@@ -2,8 +2,11 @@ import React from 'react'
 import Table from 'react-bootstrap/Table'
 import { useDispatch, useSelector } from 'react-redux';
 import { addTocart } from '../../redux/action/Actions';
+import { rootState } from '../../redux/reducers/RootReducer';
+import { Country } from '../../types';
 const CountryTable = () => {
-    const { countries } = useSelector((state) => state.CountryReducer);
+    const { countries,filteredData } = useSelector((state:rootState) => state.CountryReducer);
+    console.log("hi",filteredData);
     const dispatch = useDispatch();
     return (
         <Table striped bordered hover>
@@ -17,7 +20,7 @@ const CountryTable = () => {
                 </tr>
             </thead>
             <tbody>
-                {countries.map((country) => (
+                {filteredData.map((country:Country) => (
                     <tr key={country.name.common}>
                         <td>{country.flag}</td>
                         <td>

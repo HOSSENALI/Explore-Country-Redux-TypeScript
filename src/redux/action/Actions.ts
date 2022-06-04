@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
 import { Dispatch } from "redux"
-import { AddToCartAction, Country } from "../../types"
-import { ADD_TO_CART, GET_COUNTRIES } from "./ActionTypes"
+import { AddToCartAction, Country, setFiltered, SetKeyword } from "../../types"
+import { rootState } from "../reducers/RootReducer";
+import { ADD_TO_CART, GET_COUNTRIES, SET_FILTERED_DATA, SET_KEYWORD } from "./ActionTypes"
+
+
 
 export function Increment() {
     return {
@@ -12,20 +16,20 @@ export function Decrement() {
         type: "DECREMENT_VALUE"
     }
 }
-export function IncrementByPayload(value:string) {
+export function IncrementByPayload(value:number) {
     return {
         type: "INCREMENT_PAYLOAD",
         payload: value
     }
 }
-export function SetInput(value:string) {
+export function SetInput(value:number) {
     return {
         type: "SET_INPUT",
         payload: value
     } 
  
 }
-export function IncrementByButton(value:string) {
+export function IncrementByButton(value:number) {
     return {
         type: "INCREMENT_BY_BUTTON",
         payload: value
@@ -54,7 +58,9 @@ export const  fetchCountries = () => (dispatch:Dispatch ) => {
         .then((response) => response.json())
         .then((data) => dispatch({
             type: GET_COUNTRIES,
-            payload: {countries:data} 
+            payload: {
+                countries:data
+            } 
         }))
 };
 
@@ -68,4 +74,25 @@ export function addTocart(country:Country):AddToCartAction{
         }
     }
 }
+export function setKeyword(value:string):SetKeyword{
+    return {
+        type: SET_KEYWORD,
+        payload: value
+    }
+}
 
+export function FilteredData(countries:Country[],keyword:string):setFiltered{
+    // const { keyword} = useSelector((state: rootState) => state.CountryReducer);
+    let filteredData = countries.filter((country:Country) => {
+        return (
+            country.name.common
+                .toLowerCase()
+                .search(keyword.toLocaleLowerCase()) !== -1);
+    });
+    return{
+        type:SET_FILTERED_DATA,
+        payload:{
+            filtered:filteredData
+        }
+    }
+}
