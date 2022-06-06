@@ -1,3 +1,5 @@
+import React from 'react'
+
 import "../App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useCallback, useEffect, useState } from "react";
@@ -24,7 +26,7 @@ function Home() {
     (state: rootState) => state.CountryReducer
   );
   //   const [keyword, setKeyword] = useState("");
-  console.log("omly", countries);
+ 
   useEffect(() => {
     dispatch(fetchCountries() as any);
   }, [dispatch]);

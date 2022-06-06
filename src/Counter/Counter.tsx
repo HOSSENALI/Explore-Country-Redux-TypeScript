@@ -1,6 +1,6 @@
 import "../App.css";
 import { useSelector, useDispatch } from "react-redux";
-
+import * as React from 'react';
 import { rootState } from "../redux/reducers/RootReducer";
 import {
   Decrement,
