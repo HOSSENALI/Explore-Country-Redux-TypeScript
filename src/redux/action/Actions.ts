@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Dispatch } from "redux"
+import { AnyAction, Dispatch } from "redux"
 import { AddToCartAction, Country, setFiltered, SetKeyword } from "../../types"
 import { rootState } from "../reducers/RootReducer";
 import { ADD_TO_CART, GET_COUNTRIES, SET_FILTERED_DATA, SET_KEYWORD } from "./ActionTypes"
@@ -53,7 +53,8 @@ export function IncrementByButton(value:number) {
 //     }
 // } 
 
-export const  fetchCountries = () => (dispatch:Dispatch ) => {
+export const  fetchCountries = () => (dispatch:Dispatch )=> {
+
     fetch("https://restcountries.com/v3.1/all")
         .then((response) => response.json())
         .then((data) => dispatch({
@@ -62,6 +63,7 @@ export const  fetchCountries = () => (dispatch:Dispatch ) => {
                 countries:data
             } 
         }))
+
 };
 
 

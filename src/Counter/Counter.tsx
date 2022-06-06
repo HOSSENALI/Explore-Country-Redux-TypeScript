@@ -40,7 +40,7 @@ function Counter() {
 
         <h1>Add by input Field</h1>
         <input type="number" onChange={setInput} />
-        <button onClick={() => handleChangeButton(parseInt(buttonInput))}>
+        <button onClick={() => handleChangeButton((buttonInput))}>
           Add
         </button>
       </p>

@@ -1,6 +1,7 @@
 import { Country, CountryActions } from "../../types";
 
 import { ADD_TO_CART, GET_COUNTRIES, SET_FILTERED_DATA, SET_KEYWORD } from "../action/ActionTypes";
+
 type InitialState = {
   countries: Country[];
   cart: Country[];
@@ -22,8 +23,9 @@ export default function countryReducer(state = initialState,action: CountryActio
         filteredData:action.payload.countries,
       };
     }
+    
     case SET_FILTERED_DATA: {
-        console.log("Hossen-ali",filteredData)
+        // console.log("Hossen-ali",filteredData)
       return {
         ...state,
         filteredData:action.payload.filtered,
