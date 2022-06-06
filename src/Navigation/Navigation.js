@@ -1,7 +1,7 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
+
 import '../App.css';
 const Navigation = (props) => {
     console.log("props", props);
@@ -35,7 +35,7 @@ const Navigation = (props) => {
                         <li><Link to="/counter">Counter</Link></li>
                         <li><Link to="/welcome">Contact</Link></li>
                         <li><Link to="/about">About</Link></li>
-                        <li><Link onClick={logout}>Logout</Link></li>
+                        {/* <li><Link onClick={logout}>Logout</Link></li> */}
                     </>
 
                 )}
@@ -52,4 +52,4 @@ const Navigation = (props) => {
         </nav>);
 }
 
-export default withRouter(Navigation);
+export default Navigation;
