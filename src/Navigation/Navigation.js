@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useNavigate,  } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import '../App.css';
@@ -7,12 +7,12 @@ const Navigation = (props) => {
     console.log("props", props);
     const [isLogged, setIsLogged] = useState(false);
     const [userData, setUserData] = useState("");
+    const navigate = useNavigate();
 
     const logout = () => {
         localStorage.removeItem("userData");
         setIsLogged(false);
-        props.history.push("/login");
-        // window.location.href = "/login";
+        navigate("login");
     };
 
     useEffect(() => {
@@ -29,6 +29,8 @@ const Navigation = (props) => {
     return (
         <nav>
             <ul>
+               
+
                 {isLogged && (
                     <>
                         <li><Link to="/">Home</Link></li>
@@ -36,6 +38,7 @@ const Navigation = (props) => {
                         <li><Link to="/welcome">Contact</Link></li>
                         <li><Link to="/about">About</Link></li>
                         {/* <li><Link onClick={logout}>Logout</Link></li> */}
+                        <li><a style={{ color: "white", cursor: "pointer" }} onClick={logout}>Logout</a></li>
                     </>
 
                 )}
@@ -49,7 +52,7 @@ const Navigation = (props) => {
 
 
             </ul>
-        </nav>);
+        </nav >);
 }
 
 export default Navigation;

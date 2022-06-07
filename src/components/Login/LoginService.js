@@ -4,10 +4,9 @@ import getRolePermissionsData from "./rolePermissionsData";
 /**
  * checkLogin function
  *
- * @param {object} state
- * @return {bool} return true if logged in, else return false
+ * @param {object * @return {bool} return true if logged in, else return false
  */
-export default function checkLogin(state) {
+export default function checkLogin(username,password) {
   let data = {
     isLoggedIn: false,
     data: {}
@@ -16,7 +15,7 @@ export default function checkLogin(state) {
   
   // console.log(userData);
   userData.forEach(user => {
-    if (user.username === state.username && user.password === state.password) {
+    if (user.username ==username && user.password ==password) {
       data.isLoggedIn = true;
       data.data = user;
       if (user.role != null) {
