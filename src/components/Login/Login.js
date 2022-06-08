@@ -7,46 +7,35 @@ import Alert from "react-bootstrap/Alert";
 import "./login.css";
 import checkLogin from "./LoginService";
 import { withRouter } from "react-router-dom";
+import { getUserData, SetPassword, SetUserName, UserLogin } from "../../redux/action/LoginActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
-  // const state = {
-  //   username: "",
-  //   password: "",
-  //   errorMessage: ""
-  // };
-  const [username, setUserName] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const dispatch = useDispatch();
+  const { InputUserName, InputPassword, errorMessage ,isLogged} = useSelector((state) => state.LoginReducer);
+console.log("hhhhh",isLogged);
+
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData")) || undefined;
+    console.log("data from Login",userData);
     if (typeof userData != "undefined") {
-      if (userData.username && userData.username.length > 0) {
+      if (userData.username && userData.password.length > 0) {
         window.location.href = "/";
       }
     }
+
   }, []);
 
-  const changeUserName = e => {
-    const username = e.target.value;
-    setUserName(username);
+  const changeUserName = (e) => {
+    dispatch(SetUserName(e.target.value));
   };
 
-  const changePassword = e => {
-    const password = e.target.value;
-    setPassword(password);
+  const changePassword = (e) => {
+    dispatch(SetPassword(e.target.value));
   };
 
   const submitLogin = () => {
-    const loginResponse = checkLogin(username,password);
-    if (loginResponse.isLoggedIn) {
-      setError("");
-      localStorage.setItem("userData", JSON.stringify(loginResponse.data));
-      window.location.href = "/";
-    } else {
-      setError(
-        "Sorry !! Invalid username and password"
-      );
-    }
+    dispatch(UserLogin(InputUserName, InputPassword));
   };
 
 
@@ -56,9 +45,9 @@ const Login = () => {
       <Card style={{ width: "30rem" }}>
         <h3 className="text-center mt-2 mb-2 text-uppercase">Login</h3>
 
-        {error.length > 0 && (
+        {errorMessage.length > 0 && (
           <Alert show={true} variant="danger" className="m-2">
-            <p>{error}</p>
+            <p>{errorMessage}</p>
           </Alert>
         )}
 
@@ -68,7 +57,7 @@ const Login = () => {
               <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
-                value={username}
+                value={InputUserName}
                 placeholder="Enter your username"
                 onChange={changeUserName}
               />
@@ -78,7 +67,7 @@ const Login = () => {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                value={password}
+                value={InputPassword}
                 placeholder="Password"
                 onChange={changePassword}
               />

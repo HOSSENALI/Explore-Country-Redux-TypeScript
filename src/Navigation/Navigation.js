@@ -1,35 +1,26 @@
 import React from 'react'
-import { Link, useNavigate,  } from 'react-router-dom';
+import { Link, useNavigate, } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import '../App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { SetLogOut } from '../redux/action/LoginActions';
 const Navigation = (props) => {
-    console.log("props", props);
-    const [isLogged, setIsLogged] = useState(false);
-    const [userData, setUserData] = useState("");
+    const dispatch = useDispatch();
+    const { isLogged } = useSelector((state) => state.LoginReducer);
+
     const navigate = useNavigate();
 
     const logout = () => {
         localStorage.removeItem("userData");
-        setIsLogged(false);
+        dispatch(SetLogOut());
         navigate("login");
     };
 
-    useEffect(() => {
-        const userData = JSON.parse(localStorage.getItem("userData")) || undefined;
-        setUserData(userData);
-        if (typeof userData != "undefined") {
-            if (userData.username && userData.username.length > 0) {
-                setIsLogged(true);
-            } else {
-                setIsLogged(false);
-            }
-        }
-    }, [setUserData]);
     return (
         <nav>
             <ul>
-               
+
 
                 {isLogged && (
                     <>

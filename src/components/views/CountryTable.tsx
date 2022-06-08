@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
-import { addTocart } from "../../redux/action/Actions";
+import { addTocart } from "../../redux/action/CountryActions";
 import { rootState } from "../../redux/reducers/RootReducer";
 import { Country } from "../../types";
 const CountryTable = () => {

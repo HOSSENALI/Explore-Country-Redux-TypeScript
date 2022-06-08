@@ -5,7 +5,7 @@ export default function getUserData() {
             username: 'Shawon',
             name: 'Shawon Ahmed',
             password: '123456',
-            role: null
+           
 
         },
         {
@@ -13,10 +13,6 @@ export default function getUserData() {
             username: 'Hossen',
             name: 'Hossen Ali',
             password: '123456',
-            role: {
-                id:2,
-                name:"Super Admin"
-            }
 
         },
         {
@@ -24,10 +20,7 @@ export default function getUserData() {
             username: 'Shahin',
             name: 'Shahin Howlader',
             password: '123456',
-            role: {
-                id:1,
-                name:"Admin"
-            }
+          
 
         },
         {
@@ -35,15 +28,14 @@ export default function getUserData() {
             username: 'Rakib',
             name: 'Rakib Ahmed',
             password: '123456',
-            role: null
-
+           
         },
         {
             id: 5,
             username: 'Antu',
             name: 'Antu Biswas',
             password: '123456',
-            role: null
+
 
         },
 

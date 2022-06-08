@@ -4,37 +4,6 @@ import { AddToCartAction, Country, setFiltered, SetKeyword } from "../../types"
 import { rootState } from "../reducers/RootReducer";
 import { ADD_TO_CART, GET_COUNTRIES, SET_FILTERED_DATA, SET_KEYWORD } from "./ActionTypes"
 
-
-
-export function Increment() {
-    return {
-        type: "INCREMENT_VALUE"
-    }
-}
-export function Decrement() {
-    return {
-        type: "DECREMENT_VALUE"
-    }
-}
-export function IncrementByPayload(value:number) {
-    return {
-        type: "INCREMENT_PAYLOAD",
-        payload: value
-    }
-}
-export function SetInput(value:number) {
-    return {
-        type: "SET_INPUT",
-        payload: value
-    } 
- 
-}
-export function IncrementByButton(value:number) {
-    return {
-        type: "INCREMENT_BY_BUTTON",
-        payload: value
-    }
-}
 // export function getCountries(countries:Country[]): GetCountries{
 //     return {
 //         type: "GET_COUNTRIES",
@@ -63,7 +32,6 @@ export const  fetchCountries = () => (dispatch:Dispatch )=> {
                 countries:data
             } 
         }))
-
 };
 
 

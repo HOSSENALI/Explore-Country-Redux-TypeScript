@@ -11,18 +11,7 @@ import Navigation from "./Navigation/Navigation";
 const App = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [userData, setUserData] = useState("");
-  useEffect(() => {
-    // @ts-ignore
-    const userData = JSON.parse(localStorage.getItem("userData")) || undefined;
-    setUserData(userData);
-    if (typeof userData != "undefined") {
-      if (userData.username && userData.username.length > 0) {
-        setIsLogged(true);
-      } else {
-        setIsLogged(false);
-      }
-    }
-  }, [setUserData]);
+  
   return (
     <BrowserRouter>
       <Navigation />

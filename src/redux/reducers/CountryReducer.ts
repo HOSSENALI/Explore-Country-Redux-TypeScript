@@ -14,7 +14,7 @@ const initialState: InitialState = {
   filteredData: [],
   keyword: "",
 };
-export default function countryReducer(state = initialState,action: CountryActions): InitialState {
+export default function CountryReducer(state = initialState,action: CountryActions): InitialState {
   switch (action.type) {
     case GET_COUNTRIES: {
       return {

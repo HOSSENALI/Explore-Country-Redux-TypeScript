@@ -8,7 +8,7 @@ import {
   IncrementByButton,
   IncrementByPayload,
   SetInput,
-} from "../redux/action/Actions";
+} from "../redux/action/CounterActions";
 
 function Counter() {
   const dispatch = useDispatch();

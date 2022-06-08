@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import "../App.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,18 +7,10 @@ import { useCallback, useEffect, useState } from "react";
 import { rootState } from "../redux/reducers/RootReducer";
 import Cart from "../components/views/Cart";
 import CountryTable from "../components/views/CountryTable";
-import {
-  Decrement,
-  fetchCountries,
-  FilteredData,
-  Increment,
-  IncrementByButton,
-  IncrementByPayload,
-  SetInput,
-  setKeyword,
-} from "../redux/action/Actions";
+
 import Search from "./Search";
 import { Country } from "../types";
+import { fetchCountries, FilteredData, setKeyword } from "../redux/action/CountryActions";
 
 function Home() {
   const dispatch = useDispatch();
@@ -26,7 +18,7 @@ function Home() {
     (state: rootState) => state.CountryReducer
   );
   //   const [keyword, setKeyword] = useState("");
- 
+
   useEffect(() => {
     dispatch(fetchCountries() as any);
   }, [dispatch]);
