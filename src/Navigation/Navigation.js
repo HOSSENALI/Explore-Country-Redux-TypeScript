@@ -13,7 +13,7 @@ const Navigation = (props) => {
 
     const logout = () => {
         localStorage.removeItem("userData");
-        dispatch(SetLogOut());
+        dispatch(SetLogOut());//logout
         navigate("login");
     };
 
