@@ -1,4 +1,4 @@
-# AOE - Frontend Task
+# Personal Ecommerze Project
 
 ## Live Demo
 
@@ -6,8 +6,7 @@
 
 # About Project
 
-AOE Front-end Project!!
-This is project is a frontend based project where you can search a country to know the information about the country and make a visiting list.
+This is project is a frontend based ecommerze project .
 
 Built with these following technologies :
 
