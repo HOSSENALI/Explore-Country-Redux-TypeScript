@@ -1,4 +1,4 @@
-# Personal Ecommerze Project
+# Personal Project
 
 ## Live Demo
 
@@ -6,7 +6,7 @@
 
 # About Project
 
-This is project is a frontend based ecommerze project .
+This is project is a frontend based project where you can search and make a wish list to visit country .
 
 Built with these following technologies :
 
