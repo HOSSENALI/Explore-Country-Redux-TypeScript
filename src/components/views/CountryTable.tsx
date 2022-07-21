@@ -8,7 +8,7 @@ const CountryTable = () => {
   const { filteredData } = useSelector(
     (state: rootState) => state.CountryReducer
   );
-  // console.log("hi",filteredData);
+  console.log("hi", filteredData);
   const dispatch = useDispatch();
   return (
     <Table striped bordered hover>

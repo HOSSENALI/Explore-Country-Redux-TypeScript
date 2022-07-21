@@ -14,7 +14,7 @@ const Navigation = (props) => {
     const logout = () => {
         localStorage.removeItem("userData");
         dispatch(SetLogOut());//logout
-        navigate("login");
+        navigate("/");
     };
 
     return (
@@ -24,7 +24,7 @@ const Navigation = (props) => {
 
                 {isLogged && (
                     <>
-                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/home">Home</Link></li>
                         <li><Link to="/counter">Counter</Link></li>
                         <li><Link to="/welcome">Contact</Link></li>
                         <li><Link to="/about">About</Link></li>
@@ -36,7 +36,7 @@ const Navigation = (props) => {
 
                 {!isLogged && (
 
-                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/">Login</Link></li>
 
                 )}
 

@@ -20,7 +20,7 @@ console.log("hhhhh",isLogged);
     console.log("data from Login",userData);
     if (typeof userData != "undefined") {
       if (userData.username && userData.password.length > 0) {
-        window.location.href = "/";
+        window.location.href = "/home";
       }
     }
 
@@ -72,6 +72,7 @@ console.log("hhhhh",isLogged);
                 onChange={changePassword}
               />
             </Form.Group>
+            <br/>
             <div className="text-center">
               <Button
                 variant="primary"
@@ -83,6 +84,7 @@ console.log("hhhhh",isLogged);
               </Button>
             </div>
           </Form>
+          <span> UserName:Hossen,Password:123456</span>
         </Card.Body>
       </Card>
     </div>
