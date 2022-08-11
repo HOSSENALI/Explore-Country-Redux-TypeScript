@@ -6,6 +6,7 @@ import { Country } from '../../types';
 
 const Cart = () => {
     const { cart } = useSelector((state:rootState) => state.CountryReducer);
+    console.log(cart);
     return ( 
         <div>
             <h1 className='heading'>Selected Countries ({cart.length})</h1>

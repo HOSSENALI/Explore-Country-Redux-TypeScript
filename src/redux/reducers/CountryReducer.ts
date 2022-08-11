@@ -53,7 +53,7 @@ export default function CountryReducer(state = initialState,action: CountryActio
       return state;
   }
 }
-function filteredData(filteredData: any) {
+function filteredData(filteredData: Country[]) {
     throw new Error("Function not implemented.");
 }
 

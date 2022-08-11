@@ -14,7 +14,7 @@ function saveToLocalStorage(state: rootState) {
     const localStorageState = JSON.stringify(state);
     localStorage.setItem("Hossen_state", localStorageState);
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 

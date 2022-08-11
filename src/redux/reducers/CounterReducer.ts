@@ -13,7 +13,7 @@ const initialState: InitialState = {
 
 function CounterReducer(
   state = initialState,
-  action: CountryACtion
+  action: CounterACtion
 ): InitialState {
   switch (action.type) {
     case "INCREMENT_VALUE":
@@ -68,7 +68,7 @@ export type SET_INPUT = {
   type: "SET_INPUT"; //only in type,we need to call type in this way: typeof GET_COUNTRIES
   payload: number;
 };
-export type CountryACtion =
+export type CounterACtion =
   | INCREMENT_VALUE
   | DECREMENT_VALUE
   | INCREMENT_PAYLOAD
